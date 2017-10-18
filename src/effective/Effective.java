@@ -26,11 +26,29 @@ public class Effective {
         boolean x = true;
         while (x) {
             System.out.println("Insert types below. Example: fire -> ice");
+            System.out.println("You may quit by typing 'quit' into the console");
+            System.out.println("You may list out all the types by typing 'types' into the console.\n");
             Scanner keyboard = new Scanner(System.in);
             String input = keyboard.nextLine();
 
             if (input.isEmpty()) {
                 System.out.println("Please enter something into the console.");
+            } else if (input.contains("types")) {
+                for (int i = 0; i < type.size(); i++) {
+                    System.out.print(type.get(i) + ", ");
+                }
+                System.out.println("");
+            } else if (input.contains("quit")) {
+                System.out.println("Would you like to continue? (Y/N)");
+                String quit = keyboard.nextLine();
+                if (quit.equalsIgnoreCase("Y")) {
+                } else if (quit.equalsIgnoreCase("N")) {
+                    x = false;
+                } else {
+                    System.out.println("Please type a valid answer");
+                    System.out.println("Would you like to continue? (Y/N)");
+                    quit = keyboard.nextLine();
+                }
             } else if (!input.contains(" -> ")) {
                 System.out.println("Please use the proper syntax.");
             } else {
@@ -181,7 +199,7 @@ public class Effective {
                 return a;
             } else if (y.get(1).equalsIgnoreCase("ghost")) {
                 return d;
-            } else { 
+            } else {
                 return b;
             }
         } else if (y.get(0).equalsIgnoreCase("poison")) {
@@ -193,7 +211,7 @@ public class Effective {
                 return d;
             } else {
                 return b;
-            } 
+            }
         } else if (y.get(0).equalsIgnoreCase("psychic")) {
             if (y.get(1).equalsIgnoreCase("fighting") || y.get(1).equalsIgnoreCase("poison")) {
                 return c;
@@ -220,7 +238,7 @@ public class Effective {
             } else {
                 return b;
             }
-        }  else if (y.get(0).equalsIgnoreCase("water")) {
+        } else if (y.get(0).equalsIgnoreCase("water")) {
             if (y.get(1).equalsIgnoreCase("fire") || y.get(1).equalsIgnoreCase("ground") || y.get(1).equalsIgnoreCase("rock")) {
                 return c;
             } else if (y.get(1).equalsIgnoreCase("dragon") || y.get(1).equalsIgnoreCase("grass") || y.get(1).equalsIgnoreCase("steel")) {
