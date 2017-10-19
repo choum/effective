@@ -1,5 +1,5 @@
 /*
-    Remmember to check for these errors.
+    Remember to check for these errors.
  */
 package effective;
 
